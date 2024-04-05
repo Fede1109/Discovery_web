@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do</title>
+</head>
+<style>
+    body
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    #ft_list
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;        
+    }
+    #ft_list > div
+    {
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        min-width: 500px;
+        cursor: pointer;
+    }
+
+    #new
+    {
+       background-color: rgb(27, 135, 34);
+       border-radius: 10px;
+       color: white;
+       padding: .5rem 1rem;
+       width: 100px;
+       cursor: pointer;
+    }
+
+    #new:hover
+    {
+        transition: all .5s linear;
+       background-color: rgba(42, 192, 42, 0.785);
+       color: black;
+
+    }
+</style>
+<body>
+    <div id="ft_list"></div>
+    <button id="new">New</button>
+    <script src="./todo.js"></script>
+</body>
+</html>

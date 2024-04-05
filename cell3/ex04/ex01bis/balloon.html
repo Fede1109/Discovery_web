@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballon</title>
+</head>
+<style>
+    .explosion
+    {        
+        transition: all 1s ease-out;        
+    }
+    .grande
+    {
+        transition: all .5s ease-in;
+
+    }
+</style>
+<body>
+    <div id="caja"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<script>
+    let ballon = $("#caja");
+    const colors = ["red", "green", "blue"];
+    const colorsReverse = ["blue", "green", "red"];
+    let counter = 0;
+    window.onload = (e) => {
+        ballon.css("width", "200px")
+        ballon.css("height", "200px")
+        ballon.css("borderRadius", "50%")
+        ballon.css("background", "red")
+    }
+    ballon.click(function (e) {
+        ballon.addClass("explosion")
+        let widthB = ballon.width()
+        let heightB = ballon.height()
+
+        widthB += 10;
+        heightB += 10;
+        
+        if (widthB <= 420)
+        {
+            ballon.css("width",  `${widthB}px`)
+            ballon.css("height",  `${heightB}px`)
+            ballon.css("background",  colors[Math.abs(counter + 1)%3])
+            counter ++;
+        }
+        else
+            explotar(widthB, heightB);
+    })
+
+    function explotar(widthB, heightB)
+    {
+        ballon.addClass("explosion")
+        ballon.css("width", `200px`)
+        ballon.css("height", `200px`)
+        ballon.css("background", "red")
+        setTimeout(() => {
+            ballon.removeClass("explosion")
+        }, 1000);
+    }
+    ballon.mouseleave(() =>
+    {
+        ballon.addClass("explosion")
+        let widthB = ballon.width()
+        let heightB = ballon.height()
+        widthB -= 5;
+        heightB -= 5;
+        
+        if (widthB >= 200)
+        {
+            ballon.addClass("grande")
+            ballon.css("width", `${widthB}px`);
+            ballon.css("height", `${heightB}px`);
+            ballon.css("background", colors[Math.abs(counter - 1)%3]);
+            counter--;
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div > img{
+    width: 100%;
+}
+
+.first_img
+{
+    background-image: url("https://www.zooplus.es/magazine/wp-content/uploads/2021/09/Shiba-inu.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.black{
+    width: 100%;
+    height: 10rem;
+    background-color: black;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.black p
+{
+    color: white;
+}
+
+.paralax_img
+{
+    width: 100%;
+}
+
+.floating_text
+{
+    color: white;
+    position: absolute;
+    width: 50%;
+    top: 50%;
+}

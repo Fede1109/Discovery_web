@@ -1,0 +1,15 @@
+ul, li{
+    list-style: none;
+}
+nav
+{
+    visibility: hidden;
+}
+
+i{
+    font-size: 2rem;
+}
+
+.menu:hover ~ nav{
+    visibility: visible;
+}

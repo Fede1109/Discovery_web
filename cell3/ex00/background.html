@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./background.css">
+    <title>Background</title>
+</head>
+<body>
+    <button id="click">Click me!</button>
+</body>
+<script>
+    const colors = ["red", "blue", "black", "white", "orange", "pink", "salmon", "blue"];
+
+    const button = document.querySelector("#click");
+    button.addEventListener("click", () =>
+    {
+        const num = Math.floor(Math.random() * 8);
+        document.body.style.backgroundColor = colors[num];
+    })
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballon</title>
+</head>
+<style>
+    .explosion
+    {        
+        transition: all 1s ease-out;        
+    }
+    .grande
+    {
+        transition: all .5s ease-in;
+
+    }
+</style>
+<body>
+    <div id="caja"></div>
+</body>
+<script>
+    let ballon = document.querySelector("#caja");
+    const colors = ["red", "green", "blue"];
+    const colorsReverse = ["blue", "green", "red"];
+    let counter = 0;
+    window.onload = (e) => {
+        ballon.style.width = "200px"
+        ballon.style.height = "200px"
+        ballon.style.borderRadius = "50%"
+        ballon.style.background = "red"
+    }
+    ballon.addEventListener("click", () =>
+    {
+        ballon.classList.add("explosion")
+        let widthB = parseInt(getComputedStyle(ballon).width);
+        let heightB = parseInt(getComputedStyle(ballon).height);
+        widthB += 10;
+        heightB += 10;
+        
+        if (widthB <= 420)
+        {
+            ballon.style.width = `${widthB}px`;
+            ballon.style.height = `${heightB}px`;
+            ballon.style.background = colors[Math.abs(counter + 1)%3];
+        }
+        else
+            explotar(widthB, heightB);
+        counter ++;
+    })
+    function explotar(widthB, heightB)
+    {
+        ballon.classList.add("explosion")
+        ballon.style.width = `200px`;
+        ballon.style.height = `200px`;
+        ballon.style.background = "red"
+        setTimeout(() => {
+            ballon.classList.remove("explosion")
+        }, 1000);
+        
+
+    }
+    ballon.addEventListener("mouseleave", () =>
+    {
+        ballon.classList.add("explosion")
+        let widthB = parseInt(getComputedStyle(ballon).width);
+        let heightB = parseInt(getComputedStyle(ballon).height);
+        widthB -= 5;
+        heightB -= 5;
+        
+        if (widthB >= 200)
+        {
+            ballon.classList.add("grande")
+            ballon.style.width = `${widthB}px`;
+            ballon.style.height = `${heightB}px`;
+            ballon.style.background = colors[Math.abs(counter- 1)%3];
+            counter--;
+        }
+    })
+</script>
+</html>
